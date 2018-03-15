@@ -1,8 +1,6 @@
 #!/bin/bash
 # This script watches for file creations in the specified folder and sends them by email
 
-echo $$ > gew.pid
-
 if [ "$1" == "start" ]; then
 inotifywait -m $2 -e create |
     while read path action file; do
@@ -11,7 +9,7 @@ inotifywait -m $2 -e create |
     done
 elif [ "$1" == "stop" ]; then
 	echo "Shutting down Glados watcher on directory '$path'"
-	kill $(<gew.pid)
+	killall *gladosfilewatcher*
 else
 	echo "Usage : ./gladosfilewatcher.sh start|stop folder_to_watch notification_email"
 fi
