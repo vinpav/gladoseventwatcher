@@ -1,9 +1,8 @@
 #!/bin/bash
 # This script watches for file creations in the specified folder and sends them by email
 
-echo "Setting watcher on " $2
-
 if [ "$1" == "start" ]; then
+	echo "Setting watcher on " $2
 	if [ $# == 3 ]; then
 		echo "Gladosfilewatcher will notify " $3
 	else
